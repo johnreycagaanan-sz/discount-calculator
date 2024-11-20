@@ -2,15 +2,8 @@
 
 export const calculate = async(c) => {
     try {
-        // const { people, discount, deliveryFee} = await c.req.json();
-        const people = {
-            "JR": 130,
-            "Don": 261,
-            "Johan": 198,
-            "Nicca": 176
-          }
-        const discount = 150;
-        const deliveryFee = 35;
+        const { people, discount, deliveryFee} = await c.req.json();
+
         let finalBayronon = {}
         let total = 0;
         let numOfPeople = 0
@@ -33,4 +26,3 @@ export const calculate = async(c) => {
       return c.json({ error: error instanceof Error ? error.message : 'An error occurred' }, 500);
     }
 }
-calculate()
