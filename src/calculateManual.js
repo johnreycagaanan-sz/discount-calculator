@@ -21,16 +21,17 @@ export const calculate = async(c) => {
         }
 
         const discountedPercentage = discount/total;
-        const delivery = deliveryFee/numOfPeople;
+        const deliveryDiscount = deliveryFee/numOfPeople;
 
         for(let person in people){
-            finalBayronon[person]= (people[person] * (1 - discountedPercentage)) + delivery
+            console.log(1-discountedPercentage)
+            finalBayronon[person]= (people[person] * (1 - discountedPercentage)) + deliveryDiscount
         }
        
-        return c.json(finalBayronon)
+        console.log(finalBayronon)
 
     } catch (error) {
-      return c.json({ error: error instanceof Error ? error.message : 'An error occurred' }, 500);
+      return res.json({ error: error instanceof Error ? error.message : 'An error occurred' }, 500);
     }
 }
 calculate()
